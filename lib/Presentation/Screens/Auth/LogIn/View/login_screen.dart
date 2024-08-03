@@ -3,6 +3,7 @@ import 'package:flutter_code_structure/Presentation/Widget/my_button.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_code_structure/config/app_router_constants.dart';
 import '../../../../Widget/custom_bg.dart';
+import '../../../UserHomeScreen/user_home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -78,7 +79,8 @@ class LoginScreen extends StatelessWidget {
               btnColor: Theme.of(context).hintColor,
               onTap: () {
                 // Provider.of<StripeProvider>(context,listen: false).makePayment(bookingID: "45678", requestType: "fghj", price: 56, context: context);
-                context.go(AppRouteConstants.dashBoardScreen);
+                // context.go(AppRouteConstants.dashBoardScreen);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const UserHomeScreen()));
               },
               title: 'Login',
             ),
@@ -88,7 +90,7 @@ class LoginScreen extends StatelessWidget {
             MyButton(
               btnColor: Theme.of(context).hintColor,
               onTap: () {
-                context.go(AppRouteConstants.dashBoardScreen);
+                // context.go(AppRouteConstants.dashBoardScreen);
               },
               title: 'Connect vai:',
               image: Image.asset('assets/Images/google.png', height: 30),

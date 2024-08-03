@@ -4,6 +4,8 @@ import '../../../config/app_constant.dart';
 
 class ThemeProvider with ChangeNotifier {
   final darkTheme = ThemeData(
+    useMaterial3: true,
+    fontFamily: 'Comfortaa_SemiBold',
     primaryColor: const Color(0xffF68D58),
     cardColor: const Color(0xffDEE6E2),
     scaffoldBackgroundColor: const Color(0xff173E7D),
@@ -16,6 +18,8 @@ class ThemeProvider with ChangeNotifier {
   );
 
   final lightTheme = ThemeData(
+    useMaterial3: true,
+    fontFamily: 'Comfortaa_SemiBold',
     primaryColor: const Color(0xffF68D58),
     cardColor: const Color(0xffDEE6E2),
     scaffoldBackgroundColor: const Color(0xff173E7D),

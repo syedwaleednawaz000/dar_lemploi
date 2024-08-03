@@ -12,36 +12,41 @@ class CustomBackGround extends StatefulWidget {
 class _CustomBackGroundState extends State<CustomBackGround> {
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        Navigator.pop(context);
-        return false; // Prevent the default behavior
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
       },
-      child: Stack(
-        children: [
-          Image.asset('assets/Images/logo.png',
-              fit: BoxFit.cover,
+      child: WillPopScope(
+        onWillPop: () async {
+          Navigator.pop(context);
+          return false; // Prevent the default behavior
+        },
+        child: Stack(
+          children: [
+            Image.asset('assets/Images/logo.png',
+                fit: BoxFit.cover,
+                height: MediaQuery.of(context).size.height,
+                width: double.infinity),
+            Container(
               height: MediaQuery.of(context).size.height,
-              width: double.infinity),
-          Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-                Theme.of(context).scaffoldBackgroundColor.withOpacity(0.7),
-                Theme.of(context).scaffoldBackgroundColor.withOpacity(0.7),
-                Theme.of(context).scaffoldBackgroundColor.withOpacity(0.8),
-                Theme.of(context).scaffoldBackgroundColor.withOpacity(0.8),
-                Theme.of(context).scaffoldBackgroundColor,
-              ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(colors: [
+                  Theme.of(context).scaffoldBackgroundColor.withOpacity(0.7),
+                  Theme.of(context).scaffoldBackgroundColor.withOpacity(0.7),
+                  Theme.of(context).scaffoldBackgroundColor.withOpacity(0.8),
+                  Theme.of(context).scaffoldBackgroundColor.withOpacity(0.8),
+                  Theme.of(context).scaffoldBackgroundColor,
+                ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+              ),
+              child: Scaffold(
+                backgroundColor: Colors.transparent,
+                resizeToAvoidBottomInset: false,
+                body: widget.body,
+              ),
             ),
-            child: Scaffold(
-              backgroundColor: Colors.transparent,
-              resizeToAvoidBottomInset: false,
-              body: widget.body,
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

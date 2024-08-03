@@ -1,8 +1,6 @@
 import 'dart:io';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_code_structure/Presentation/Screens/History/Provider/history_provider.dart';
-import 'package:flutter_code_structure/Presentation/Screens/Home/Provider/home_provider.dart';
 import 'package:flutter_code_structure/Presentation/Screens/NotificationHelper/notification_helper.dart';
 import 'package:flutter_code_structure/Presentation/Screens/SplashScreen/Provider/splash_provider.dart';
 import 'package:flutter_code_structure/Presentation/Stripe/stripe_provider.dart';
@@ -15,6 +13,7 @@ import 'package:provider/provider.dart';
 
 import 'Language/app_trans_delegat.dart';
 import 'Language/language_provider.dart';
+import 'Presentation/Screens/UserHomeScreen/provider/home_provider.dart';
 import 'Presentation/routes/app_route_configs.dart';
 import 'firebase_options.dart';
 
@@ -50,7 +49,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => HistoryProvider()),
+        // ChangeNotifierProvider(create: (_) => HistoryProvider()),
         ChangeNotifierProvider(create: (_) => HomeProvider()),
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(create: (_) => LanguageProvider()),

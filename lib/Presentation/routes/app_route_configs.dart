@@ -7,13 +7,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_code_structure/Presentation/Screens/Auth/Forgot/View/forgot_screen.dart';
 import 'package:flutter_code_structure/Presentation/Screens/Auth/LogIn/View/login_screen.dart';
 import 'package:flutter_code_structure/Presentation/Screens/Auth/Registraion/View/registration_screen_user.dart';
-import 'package:flutter_code_structure/Presentation/Screens/Dashboard/View/dashboard.dart';
-import 'package:flutter_code_structure/Presentation/Screens/History/View/history_screen.dart';
-import 'package:flutter_code_structure/Presentation/Screens/Home/View/home_screen.dart';
 import 'package:flutter_code_structure/Presentation/Screens/SplashScreen/View/splash_screen.dart';
-import 'package:flutter_code_structure/Presentation/Screens/profile/View/profile_screen.dart';
 import 'package:flutter_code_structure/config/app_router_constants.dart';
-
 import '../Screens/Auth/Registraion/View/registration_screen_company.dart';
 import '../Screens/selectionScreen/selection_screen.dart';
 
@@ -33,40 +28,6 @@ class AppRouter {
           pageBuilder: (context, state) {
             return const MaterialPage(
               child: SplashScreen(),
-            );
-          },
-        ),
-        GoRoute(
-          name: AppRouteConstants.homeView,
-          path: AppRouteConstants.homeView,
-          pageBuilder: (context, state) {
-            saveLocalData(screenName: state.name!);
-            return MaterialPage(
-              child: HomeScreen(
-                screenName: "Home",
-              ),
-            );
-          },
-        ),
-        GoRoute(
-          name: AppRouteConstants.dashBoardScreen,
-          path: AppRouteConstants.dashBoardScreen,
-          pageBuilder: (context, state) {
-            saveLocalData(screenName: state.name!);
-            return const MaterialPage(
-              child: DashBoardScreen(),
-            );
-          },
-        ),
-        GoRoute(
-          name: AppRouteConstants.historyScreen,
-          path: AppRouteConstants.historyScreen,
-          pageBuilder: (context, state) {
-            saveLocalData(screenName: state.name!);
-            return MaterialPage(
-              child: HistoryScreen(
-                screenName: "History",
-              ),
             );
           },
         ),
@@ -97,18 +58,6 @@ class AppRouter {
             saveLocalData(screenName: state.name!);
             return const MaterialPage(
               child: ForgotPasswordScreen(),
-            );
-          },
-        ),
-        GoRoute(
-          name: AppRouteConstants.profileScreen,
-          path: AppRouteConstants.profileScreen,
-          pageBuilder: (context, state) {
-            saveLocalData(screenName: state.name!);
-            return MaterialPage(
-              child: ProfileScreen(
-                screenName: "ProfileScreen",
-              ),
             );
           },
         ),

@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter_code_structure/config/app_router_constants.dart';
 import 'package:file_picker/file_picker.dart';
 import '../../../../Widget/custom_bg.dart';
+import '../../../UserHomeScreen/user_home_screen.dart';
 
 class RegistrationTwoScreen extends StatefulWidget {
   const RegistrationTwoScreen({super.key});
@@ -210,9 +211,10 @@ class _RegistrationTwoScreenState extends State<RegistrationTwoScreen> {
                   width: 140,
                   btnColor: Theme.of(context).primaryColor,
                   onTap: () {
-                    context.go(AppRouteConstants.dashBoardScreen);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const UserHomeScreen()));
+                    // context.go(AppRouteConstants.dashBoardScreen);
                   },
-                  title: 'Next',
+                  title: 'Create your\naccount',
                 ),
               ),
             ],

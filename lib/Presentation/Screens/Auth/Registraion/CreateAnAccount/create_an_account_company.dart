@@ -4,6 +4,7 @@ import 'package:flutter_code_structure/Presentation/Widget/my_button.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_code_structure/config/app_router_constants.dart';
 import '../../../../Widget/custom_bg.dart';
+import '../../../CompanyHome/companay_home_screen.dart';
 
 class CompanyRegistrationTwoScreen extends StatefulWidget {
   const CompanyRegistrationTwoScreen({super.key});
@@ -167,7 +168,8 @@ class _CompanyRegistrationTwoScreenState extends State<CompanyRegistrationTwoScr
                   width: 140,
                   btnColor: Theme.of(context).primaryColor,
                   onTap: () {
-                    context.go(AppRouteConstants.dashBoardScreen);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const CompanyHomeScreen()));
+                    // context.go(AppRouteConstants.dashBoardScreen);
                   },
                   title: 'Next',
                 ),
