@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_code_structure/Language/app_translation.dart';
 import 'package:flutter_code_structure/Presentation/Widget/my_button.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_code_structure/config/app_router_constants.dart';
@@ -25,7 +26,7 @@ class LoginScreen extends StatelessWidget {
             const SizedBox(height: 30),
             Image.asset('assets/Images/name_logo.png',width: 400,height: 120),
             const SizedBox(height: 50),
-            const Text('Identifier:',textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800,fontSize: 24)),
+            Text(AppTranslations.of(context).identifier,textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800,fontSize: 24)),
             const SizedBox(height: 5),
              TextFormField(
                textAlign: TextAlign.center,
@@ -50,7 +51,7 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 12.0),
-            const Text('Password:',textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800,fontSize: 24)),
+            Text(AppTranslations.of(context).password,textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800,fontSize: 24)),
             const SizedBox(height: 5),
             TextFormField(
               textAlign: TextAlign.center,
@@ -82,7 +83,7 @@ class LoginScreen extends StatelessWidget {
                 // context.go(AppRouteConstants.dashBoardScreen);
               Navigator.push(context, MaterialPageRoute(builder: (context) => const UserHomeScreen()));
               },
-              title: 'Login',
+              title: AppTranslations.of(context).login,
             ),
             const SizedBox(height: 12.0),
             Text('or',style: TextStyle(color: Theme.of(context).primaryColor,fontWeight: FontWeight.w700,fontSize: 20)),
@@ -92,7 +93,7 @@ class LoginScreen extends StatelessWidget {
               onTap: () {
                 // context.go(AppRouteConstants.dashBoardScreen);
               },
-              title: 'Connect vai:',
+              title: AppTranslations.of(context).connectVia,
               image: Image.asset('assets/Images/google.png', height: 30),
             ),
           ],

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_code_structure/Language/app_translation.dart';
+import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import '../../../config/app_router_constants.dart';
 import '../../Widget/custom_bg.dart';
@@ -90,7 +92,7 @@ class _CompanyHomeScreenState extends State<CompanyHomeScreen> {
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  'Your offer\nhas been publish',
+                  AppTranslations.of(context).yourOfferPublish,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
@@ -110,7 +112,7 @@ class _CompanyHomeScreenState extends State<CompanyHomeScreen> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        context.push(AppRouteConstants.selectionScreen);
+        Get.back();
         return true;
       },
       child: CustomBackGround(
@@ -149,29 +151,29 @@ class _CompanyHomeScreenState extends State<CompanyHomeScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text('Publish your offer\nfor free!',
+                    Text(AppTranslations.of(context).publishOfferFree,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Theme.of(context).hintColor,
                             fontWeight: FontWeight.w600,
                             fontSize: 32
                         )),
-                    const CustomTextField(
+                    CustomTextField(
                       textAlign: TextAlign.start,
                       hintText: 'Animation M/W',
-                      titleText: 'Job Title:',
+                      titleText: AppTranslations.of(context).jobTitle,
                     ),
-                    const CustomTextField(
+                    CustomTextField(
                       textAlign: TextAlign.start,
-                      titleText: 'Number of people:',
+                      titleText: AppTranslations.of(context).numberOfPeople,
                       hintText: '10',
                     ),
-                    const Row(
+                     Row(
                       children: [
                         Expanded(
                           child: CustomTextField(
                             textAlign: TextAlign.start,
-                            titleText: 'Salary:',
+                            titleText: AppTranslations.of(context).salary,
                             hintText: '10',
                           ),
                         ),
@@ -179,7 +181,7 @@ class _CompanyHomeScreenState extends State<CompanyHomeScreen> {
                           child: CustomTextField(
                             textAlign: TextAlign.start,
                             titleText: '   ',
-                            hintText: 'Day',
+                            hintText: AppTranslations.of(context).day,
                           ),
                         ),
                       ],
@@ -192,14 +194,14 @@ class _CompanyHomeScreenState extends State<CompanyHomeScreen> {
                             controller: _dateController,
                             onTap: _selectDate,
                             textAlign: TextAlign.start,
-                            titleText: 'Start:',
+                            titleText: AppTranslations.of(context).start,
                             hintText: _selectedDate,
                           ),
                         ),
-                         const Expanded(
+                          Expanded(
                           child: CustomTextField(
                             textAlign: TextAlign.start,
-                            titleText: 'Duration',
+                            titleText: AppTranslations.of(context).duration,
                             hintText: '> 2 Months',
                           ),
                         ),
@@ -209,7 +211,7 @@ class _CompanyHomeScreenState extends State<CompanyHomeScreen> {
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Align(
                         alignment: Alignment.topLeft,
-                        child: Text('Job Description(Optional):', style: TextStyle(color: Theme
+                        child: Text(AppTranslations.of(context).jobDescriptionOptional, style: TextStyle(color: Theme
                             .of(context)
                             .hintColor,
                             fontWeight: FontWeight.w500,
@@ -223,7 +225,7 @@ class _CompanyHomeScreenState extends State<CompanyHomeScreen> {
                         style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
                           contentPadding:  const EdgeInsets.only(left:  20,top:  30,right: 20,bottom: 10),
-                          hintText: '200 Words Maximum',
+                          hintText: AppTranslations.of(context).wordsMaximum,
                           hintStyle: const TextStyle(fontWeight: FontWeight.w300, color: Colors.white),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(33),
@@ -243,7 +245,7 @@ class _CompanyHomeScreenState extends State<CompanyHomeScreen> {
                     SizedBox(height: 15),
                     Center(
                       child: MyButton(
-                        title: 'Publish',
+                        title: AppTranslations.of(context).publish,
                         onTap: () {
                           _showConfirmationDialog(context);
                         },

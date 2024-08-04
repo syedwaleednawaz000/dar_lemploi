@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_code_structure/Language/app_translation.dart';
 import 'package:flutter_code_structure/Presentation/Widget/my_button.dart';
 
 class HomeCardWidget extends StatelessWidget {
@@ -48,8 +49,8 @@ class HomeCardWidget extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  'Your application\nhas been sent',
-                  style: TextStyle(
+                  AppTranslations.of(context).yourApplicationSent,
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
                   ),
@@ -78,7 +79,7 @@ class HomeCardWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            title ?? 'AKRA AGENCY',
+            title ?? AppTranslations.of(context).aRKAAgency,
             style: TextStyle(
               color: Theme.of(context).scaffoldBackgroundColor,
               fontSize: 30,
@@ -91,7 +92,7 @@ class HomeCardWidget extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  dailyRate ?? '4000 DZD/Day',
+                  dailyRate ?? '4000 DZD/${AppTranslations.of(context).day}',
                   style: TextStyle(
                     color: Theme.of(context).scaffoldBackgroundColor,
                     fontSize: 18,
@@ -131,7 +132,7 @@ class HomeCardWidget extends StatelessWidget {
           const SizedBox(height: 10),
           Center(
             child: MyButton(
-              title: 'Apply',
+              title: AppTranslations.of(context).apply,
               onTap: () {
                 _showConfirmationDialog(context);
               },

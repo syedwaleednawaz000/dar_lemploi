@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_code_structure/Presentation/Screens/selectionScreen/selection_screen.dart';
+import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_code_structure/Presentation/routes/app_route_configs.dart';
 import 'package:flutter_code_structure/config/app_router_constants.dart';
@@ -12,7 +14,8 @@ class SplashScreen extends StatelessWidget {
     AppRouter.getLocalData();
     Timer(const Duration(seconds: 2), () {
       // context.go('${AppRouter.currentScreen}');
-      context.push(AppRouteConstants.selectionScreen);
+      // context.push(AppRouteConstants.selectionScreen);
+      Get.to(() => const SelectionScreen());
     });
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,

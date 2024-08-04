@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_code_structure/Language/app_translation.dart';
 import 'package:flutter_code_structure/Presentation/Widget/my_button.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_code_structure/config/app_router_constants.dart';
@@ -25,7 +26,7 @@ class RegistrationScreen extends StatelessWidget {
             const SizedBox(height: 30),
             Image.asset('assets/Images/name_logo.png', width: 400, height: 120),
             const SizedBox(height: 50),
-            const Text('Full name:',
+            Text(AppTranslations.of(context).fullName,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.white,
@@ -56,7 +57,7 @@ class RegistrationScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 12.0),
-            const Text('Email:',
+            Text('${AppTranslations.of(context).email}:',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.white,
@@ -87,7 +88,7 @@ class RegistrationScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 12.0),
-            const Text('Phone Number:',
+            Text(AppTranslations.of(context).phoneNumber,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.white,
@@ -118,7 +119,7 @@ class RegistrationScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 12.0),
-            const Text('Password:',
+            Text(AppTranslations.of(context).password,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.white,
@@ -149,7 +150,7 @@ class RegistrationScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 12.0),
-            const Text('Password Confirmation:',
+            Text(AppTranslations.of(context).passwordConfirmation,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.white,
@@ -191,7 +192,7 @@ class RegistrationScreen extends StatelessWidget {
                         builder: (context) => const RegistrationTwoScreen(),
                       ));
                 },
-                title: 'Next',
+                title: AppTranslations.of(context).next,
               ),
             ),
           ],

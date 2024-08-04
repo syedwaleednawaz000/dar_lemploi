@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_code_structure/Language/app_translation.dart';
 import 'package:flutter_code_structure/Presentation/Widget/my_button.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_code_structure/config/app_router_constants.dart';
@@ -26,7 +27,7 @@ class RegistrationScreenCompany extends StatelessWidget {
                 Image.asset(
                     'assets/Images/name_logo.png', width: 400, height: 120),
                 const SizedBox(height: 50),
-                const Text('Company name:', textAlign: TextAlign.center,
+                Text(AppTranslations.of(context).companyName, textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.white,
                         fontWeight: FontWeight.w600,
                         fontSize: 18)),
@@ -36,7 +37,7 @@ class RegistrationScreenCompany extends StatelessWidget {
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.symmetric(
                         horizontal: 12, vertical: -9),
-                    hintText: 'ARKA Agency',
+                    hintText: AppTranslations.of(context).aRKAAgency,
                     hintStyle: const TextStyle(
                         fontWeight: FontWeight.w400, color: Colors.white),
                     // labelStyle: const TextStyle(color: Colors.white,fontWeight: FontWeight.w600),
@@ -61,7 +62,7 @@ class RegistrationScreenCompany extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 12.0),
-                const Text('Email:', textAlign: TextAlign.center,
+                 Text(AppTranslations.of(context).email, textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.white,
                         fontWeight: FontWeight.w600,
                         fontSize: 18)),
@@ -96,7 +97,7 @@ class RegistrationScreenCompany extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 12.0),
-                const Text('Phone Number:', textAlign: TextAlign.center,
+                 Text(AppTranslations.of(context).phoneNumber, textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.white,
                         fontWeight: FontWeight.w600,
                         fontSize: 18)),
@@ -131,7 +132,7 @@ class RegistrationScreenCompany extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 12.0),
-                const Text('Password:', textAlign: TextAlign.center,
+                Text(AppTranslations.of(context).password, textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.white,
                         fontWeight: FontWeight.w600,
                         fontSize: 18)),
@@ -166,8 +167,8 @@ class RegistrationScreenCompany extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 12.0),
-                const Text(
-                    'Password Confirmation:', textAlign: TextAlign.center,
+                 Text(
+                    AppTranslations.of(context).passwordConfirmation, textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.white,
                         fontWeight: FontWeight.w600,
                         fontSize: 19)),
@@ -213,7 +214,7 @@ class RegistrationScreenCompany extends StatelessWidget {
                         builder: (context) => const CompanyRegistrationTwoScreen(),));
                       // context.go(AppRouteConstants.dashBoardScreen);
                     },
-                    title: 'Next',
+                    title: AppTranslations.of(context).next,
                   ),
                 ),
               ],

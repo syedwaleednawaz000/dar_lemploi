@@ -1,6 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_code_structure/Language/app_translation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_code_structure/Presentation/Screens/WellcomeScreen/welcome_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter_code_structure/Presentation/Widget/my_button.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_code_structure/config/app_router_constants.dart';
@@ -31,9 +34,9 @@ class WellComeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Image.asset('assets/Images/logo.png', width: 250),
-          const Text(
-            ' Welcome to',
-            style: TextStyle(
+          Text(
+            AppTranslations.of(context).welcomeTo,
+            style: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w800,
               fontSize: 24,
@@ -41,10 +44,10 @@ class WellComeScreen extends StatelessWidget {
           ),
           const SizedBox(height: 15),
           Image.asset('assets/Images/name_logo.png', width: 400, height: 80),
-          const Text(
-            'Get yourself\na job !',
+          Text(
+            AppTranslations.of(context).getYourselfJob,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w800,
               fontSize: 24,
@@ -52,12 +55,14 @@ class WellComeScreen extends StatelessWidget {
           ),
           const SizedBox(height: 30),
           MyButton(
-            title: 'Create an account',
-            onTap: () => _handleCreateAccount(context),
+            title: AppTranslations.of(context).createAnAccount,
+            onTap: () {
+              Provider.of<WelcomeScreenProvider>(context,listen: false).handleCreateAccount(context: context,);
+            }
           ),
           const SizedBox(height: 15),
           MyButton(
-            title: 'Login',
+            title: AppTranslations.of(context).login,
             onTap: () {
               context.go(AppRouteConstants.login);
             },

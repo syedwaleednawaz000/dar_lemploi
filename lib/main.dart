@@ -3,14 +3,16 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_code_structure/Presentation/Screens/NotificationHelper/notification_helper.dart';
 import 'package:flutter_code_structure/Presentation/Screens/SplashScreen/Provider/splash_provider.dart';
+import 'package:flutter_code_structure/Presentation/Screens/SplashScreen/View/splash_screen.dart';
+import 'package:flutter_code_structure/Presentation/Screens/WellcomeScreen/welcome_provider.dart';
 import 'package:flutter_code_structure/Presentation/Stripe/stripe_provider.dart';
 import 'package:flutter_code_structure/Presentation/Theme/Provider/theme_provider.dart';
 import 'package:flutter_code_structure/config/app_url.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-
 import 'Language/app_trans_delegat.dart';
 import 'Language/language_provider.dart';
 import 'Presentation/Screens/UserHomeScreen/provider/home_provider.dart';
@@ -55,6 +57,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => LanguageProvider()),
         ChangeNotifierProvider(create: (_) => SplashProvider()),
         ChangeNotifierProvider(create: (_) => StripeProvider()),
+        ChangeNotifierProvider(create: (_) => WelcomeScreenProvider()),
       ],
       child: Builder(builder: (BuildContext context) {
         final languageProvider = Provider.of<LanguageProvider>(context);
@@ -68,10 +71,10 @@ class MyApp extends StatelessWidget {
               splitScreenMode: true,
               builder: (context, child) {
                 final themeProvider = Provider.of<ThemeProvider>(context);
-                return MaterialApp.router(
-                  routeInformationProvider: AppRouter.router.routeInformationProvider,
-                  routeInformationParser: AppRouter.router.routeInformationParser,
-                  routerDelegate: AppRouter.router.routerDelegate,
+                return GetMaterialApp(
+                  // routeInformationProvider: AppRouter.router.routeInformationProvider,
+                  // routeInformationParser: AppRouter.router.routeInformationParser,
+                  // routerDelegate: AppRouter.router.routerDelegate,
                   // navigatorKey: navigatorKey,
                   debugShowCheckedModeBanner: false,
                   title: 'Dar Lemploi',
@@ -83,7 +86,7 @@ class MyApp extends StatelessWidget {
                     ...GlobalMaterialLocalizations.delegates,
                     GlobalWidgetsLocalizations.delegate,
                   ],
-                  // home: const NavigationDrawerMainScreen(),
+                  home: const SplashScreen(),
                 );
               },
             );

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_code_structure/Presentation/Widget/my_button.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_code_structure/config/app_router_constants.dart';
+import '../../../../../Language/app_translation.dart';
 import '../../../../Widget/custom_bg.dart';
 import '../../../CompanyHome/companay_home_screen.dart';
 
@@ -33,8 +34,8 @@ class _CompanyRegistrationTwoScreenState extends State<CompanyRegistrationTwoScr
               const SizedBox(height: 30),
               Image.asset('assets/Images/name_logo.png', width: 400, height: 120),
               const SizedBox(height: 50),
-              const Text(
-                'Company Address:',
+               Text(
+                 AppTranslations.of(context).companyAddress,
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 18),
               ),
@@ -60,8 +61,8 @@ class _CompanyRegistrationTwoScreenState extends State<CompanyRegistrationTwoScr
                 ),
               ),
               const SizedBox(height: 12.0),
-              const Text(
-                'City:',
+              Text(
+                AppTranslations.of(context).city,
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 18),
               ),
@@ -87,8 +88,8 @@ class _CompanyRegistrationTwoScreenState extends State<CompanyRegistrationTwoScr
                 ),
               ),
               const SizedBox(height: 12.0),
-              const Text(
-                'Postal Code:',
+              Text(
+                AppTranslations.of(context).postalCode,
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 18),
               ),
@@ -114,8 +115,8 @@ class _CompanyRegistrationTwoScreenState extends State<CompanyRegistrationTwoScr
                 ),
               ),
               const SizedBox(height: 12.0),
-              const Text(
-                'Events:',
+               Text(
+                '${AppTranslations.of(context).events}:',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 18),
               ),
@@ -128,7 +129,7 @@ class _CompanyRegistrationTwoScreenState extends State<CompanyRegistrationTwoScr
                 icon: Icon(Icons.arrow_drop_down_rounded,color: Theme.of(context).primaryColor),
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-                  hintText: 'Events',
+                  hintText: AppTranslations.of(context).events,
                   hintStyle: const TextStyle(fontWeight: FontWeight.w400, color: Colors.white),
                   iconColor: Theme.of(context).primaryColor,
                   border: OutlineInputBorder(
@@ -171,7 +172,7 @@ class _CompanyRegistrationTwoScreenState extends State<CompanyRegistrationTwoScr
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const CompanyHomeScreen()));
                     // context.go(AppRouteConstants.dashBoardScreen);
                   },
-                  title: 'Next',
+                  title: AppTranslations.of(context).next,
                 ),
               ),
             ],

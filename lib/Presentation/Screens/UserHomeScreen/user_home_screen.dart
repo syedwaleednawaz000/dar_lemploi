@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_code_structure/Language/app_translation.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_code_structure/Presentation/Screens/UserHomeScreen/provider/home_provider.dart';
 import 'package:flutter_popup/flutter_popup.dart';
@@ -76,7 +77,7 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
                             builder: (context, provider, child) {
                               return DropDownTextField(
                                 hint: provider.selectedCity,
-                                titleText: 'City/Department/Region:',
+                                titleText: AppTranslations.of(context).cityDepartmentRegion,
                                 suffixIcon: DropdownButton<String>(
                                   underline: const SizedBox.shrink(),
                                   // value: provider.selectedCity,
@@ -95,7 +96,7 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
                                       provider.setCity(newValue);
                                     }
                                   },
-                                  hint: const Text('Select'),
+                                  hint: Text(AppTranslations.of(context).select),
                                 ),
                               );
                             },
@@ -104,7 +105,7 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
                             builder: (context, provider, child) {
                               return DropDownTextField(
                                 hint: provider.selectedDuration,
-                                titleText: 'Duration:',
+                                titleText: AppTranslations.of(context).duration,
                                 suffixIcon: DropdownButton<String>(
                                   underline: const SizedBox.shrink(),
                                   // value: provider.selectedDuration,
@@ -123,7 +124,7 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
                                       provider.setDuration(newValue);
                                     }
                                   },
-                                  hint: const Text('Select'),
+                                  hint:  Text(AppTranslations.of(context).select),
                                 ),
                               );
                             },
@@ -134,10 +135,10 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
                               Expanded(
                                 child: Consumer<HomeProvider>(
                                   builder: (context, provider, child) {
-                                    return const DropDownTextField(
+                                    return  DropDownTextField(
                                       hint: '2000 DZD',
                                       readOnly: false,
-                                      titleText: 'Minimum salary:',
+                                      titleText: AppTranslations.of(context).minimumSalary,
                                     );
                                   },
                                 ),
@@ -167,7 +168,7 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
                                             provider.setDay(newValue);
                                           }
                                         },
-                                        hint: const Text('Select'),
+                                        hint:  Text(AppTranslations.of(context).done),
                                       ),
                                     );
                                   },
@@ -180,7 +181,7 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
                             builder: (context, provider, child) {
                               return DropDownTextField(
                                 hint: provider.selectedSector,
-                                titleText: 'Events',
+                                titleText: AppTranslations.of(context).events,
                                 suffixIcon: DropdownButton<String>(
                                   underline: const SizedBox.shrink(),
                                   // value: provider.selectedSector,
@@ -199,7 +200,7 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
                                       provider.setSector(newValue);
                                     }
                                   },
-                                  hint: const Text('Select'),
+                                  hint:  Text(AppTranslations.of(context).select),
                                 ),
                               );
                             },
@@ -207,7 +208,7 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
                           const SizedBox(height: 16),
                           Center(
                             child: MyButton(
-                              title: 'Done',
+                              title: AppTranslations.of(context).done,
                               onTap: () {
                                 Navigator.pop(context);
                               },

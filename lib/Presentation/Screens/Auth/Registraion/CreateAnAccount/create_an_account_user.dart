@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_code_structure/Language/app_translation.dart';
 import 'package:flutter_code_structure/Presentation/Widget/my_button.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_code_structure/config/app_router_constants.dart';
@@ -47,10 +48,10 @@ class _RegistrationTwoScreenState extends State<RegistrationTwoScreen> {
             children: [
               const SizedBox(height: 30),
               Image.asset('assets/Images/name_logo.png', width: 400, height: 120),
-              const Text(
-                'Address:',
+              Text(
+                AppTranslations.of(context).address,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 18),
+                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 18),
               ),
               const SizedBox(height: 5),
               TextFormField(
@@ -74,10 +75,10 @@ class _RegistrationTwoScreenState extends State<RegistrationTwoScreen> {
                 ),
               ),
               const SizedBox(height: 12.0),
-              const Text(
-                'City:',
+              Text(
+                AppTranslations.of(context).city,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 18),
+                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 18),
               ),
               const SizedBox(height: 5),
               TextFormField(
@@ -101,10 +102,10 @@ class _RegistrationTwoScreenState extends State<RegistrationTwoScreen> {
                 ),
               ),
               const SizedBox(height: 12.0),
-              const Text(
-                'Postal Code:',
+              Text(
+                AppTranslations.of(context).postalCode,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 18),
+                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 18),
               ),
               const SizedBox(height: 5),
               TextFormField(
@@ -128,10 +129,10 @@ class _RegistrationTwoScreenState extends State<RegistrationTwoScreen> {
                 ),
               ),
               const SizedBox(height: 12.0),
-              const Text(
-                'Education:',
+              Text(
+                AppTranslations.of(context).education,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 18),
+                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 18),
               ),
               const SizedBox(height: 5),
               DropdownButtonFormField<String>(
@@ -142,7 +143,7 @@ class _RegistrationTwoScreenState extends State<RegistrationTwoScreen> {
                 icon: Icon(Icons.arrow_drop_down_rounded, color: Theme.of(context).primaryColor),
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-                  hintText: 'Select your education',
+                  hintText: AppTranslations.of(context).selectEducation,
                   hintStyle: const TextStyle(fontWeight: FontWeight.w400, color: Colors.white),
                   iconColor: Theme.of(context).primaryColor,
                   border: OutlineInputBorder(
@@ -178,10 +179,10 @@ class _RegistrationTwoScreenState extends State<RegistrationTwoScreen> {
               ),
               const SizedBox(height: 12.0),
               Center(
-                child: const Text(
-                  'CV',
+                child: Text(
+                  AppTranslations.of(context).cv,
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.w400, fontSize: 34),
+                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w400, fontSize: 34),
                 ),
               ),
               Center(
@@ -189,7 +190,7 @@ class _RegistrationTwoScreenState extends State<RegistrationTwoScreen> {
                   width: 140,
                   btnColor: Theme.of(context).cardColor,
                   onTap: _pickFile,
-                  title: 'Choose a file',
+                  title: AppTranslations.of(context).chooseFile,
                 ),
               ),
               Center(
@@ -214,7 +215,7 @@ class _RegistrationTwoScreenState extends State<RegistrationTwoScreen> {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const UserHomeScreen()));
                     // context.go(AppRouteConstants.dashBoardScreen);
                   },
-                  title: 'Create your\naccount',
+                  title: AppTranslations.of(context).createYourAccount,
                 ),
               ),
             ],
